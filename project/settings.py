@@ -102,9 +102,9 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
     },
-    {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",},
-    {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",},
-    {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",},
+    {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator", },
+    {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator", },
+    {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator", },
 ]
 
 
@@ -130,10 +130,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATIC_URL = "/static/"
 STATICFILES_DIRS = (
-    ("js", os.path.join(STATIC_ROOT, "js")),
-    ("css", os.path.join(STATIC_ROOT, "css")),
-    ("images", os.path.join(STATIC_ROOT, "images")),
-    ("fonts", os.path.join(STATIC_ROOT, "fonts")),
+    os.path.join(BASE_DIR, 'static'),
 )
 
 # # Static files (CSS, JavaScript, Images)
