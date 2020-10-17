@@ -3,8 +3,8 @@ from django.contrib import admin
 
 
 api_urls = [
-    path('todos/', include('todos.urls')),
-    path('', include('users.urls')),
+    path('todos/', include('todoapp.todos.urls')),
+    path('', include('todoapp.users.urls')),
 ]
 
 urlpatterns = [

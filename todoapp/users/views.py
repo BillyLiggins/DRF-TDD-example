@@ -3,7 +3,11 @@ from rest_framework.authtoken.models import Token
 from rest_framework.generics import CreateAPIView, GenericAPIView
 from rest_framework.response import Response
 from rest_framework.generics import RetrieveDestroyAPIView
-from users.serializers import UserRegistrationSerializer, UserLoginSerializer, TokenSerializer
+from todoapp.users.serializers import (
+    UserRegistrationSerializer,
+    UserLoginSerializer,
+    TokenSerializer,
+)
 
 
 class UserRegistrationAPIView(CreateAPIView):
@@ -36,14 +40,10 @@ class UserLoginAPIView(GenericAPIView):
             user = serializer.user
             token, _ = Token.objects.get_or_create(user=user)
             return Response(
-                data=TokenSerializer(token).data,
-                status=status.HTTP_200_OK,
+                data=TokenSerializer(token).data, status=status.HTTP_200_OK,
             )
         else:
-            return Response(
-                data=serializer.errors,
-                status=status.HTTP_400_BAD_REQUEST,
-            )
+            return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST,)
 
 
 class UserTokenAPIView(RetrieveDestroyAPIView):

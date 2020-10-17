@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
-from todos.models import Todo
+from todoapp.todos.models import Todo
 
 
 class TodoUserSerializer(serializers.ModelSerializer):

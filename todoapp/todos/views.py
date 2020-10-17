@@ -1,9 +1,9 @@
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 from rest_framework.permissions import IsAuthenticated
 
-from todos.models import Todo
-from todos.permissions import UserIsOwnerTodo
-from todos.serializers import TodoSerializer
+from todoapp.todos.models import Todo
+from todoapp.todos.permissions import UserIsOwnerTodo
+from todoapp.todos.serializers import TodoSerializer
 
 
 class TodoListCreateAPIView(ListCreateAPIView):
@@ -20,5 +20,3 @@ class TodoDetailAPIView(RetrieveUpdateDestroyAPIView):
     serializer_class = TodoSerializer
     queryset = Todo.objects.all()
     permission_classes = (IsAuthenticated, UserIsOwnerTodo)
-
-

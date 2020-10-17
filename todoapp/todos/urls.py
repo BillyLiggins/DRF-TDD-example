@@ -1,5 +1,5 @@
 from django.urls import path
-from todos.views import TodoListCreateAPIView, TodoDetailAPIView
+from todoapp.todos.views import TodoListCreateAPIView, TodoDetailAPIView
 
 app_name = 'todos'
 
