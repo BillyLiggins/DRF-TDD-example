@@ -13,5 +13,5 @@ setup(
     author="Billy Liggins",
     email="billy@gmail.com",
     license="UNLICENSED",
-    packages=["todoapp"]
+    packages=["todoapp", "todoapp.users", "todoapp.todos"]
 )
