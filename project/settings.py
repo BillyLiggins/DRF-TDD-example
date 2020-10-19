@@ -83,14 +83,17 @@ WSGI_APPLICATION = "project.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
-
-DATABASES = {
-    "default": dj_database_url.config(env="DATABASE_URL")
-    # {
-    #     "ENGINE": "django.db.backends.postgresql",
-    #     "NAME": os.environ.get("DATABASE_URL", os.path.join(BASE_DIR, "db.sqlite3")),
-    # }
-}
+if os.environ.get("DATABASE_URL"):
+    DATABASES = {
+        "default": dj_database_url.config(env="DATABASE_URL")
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
@@ -161,5 +164,5 @@ TEST_RUNNER = "django_nose.NoseTestSuiteRunner"
 # Tell nose to measure coverage on the 'foo' and 'bar' apps
 NOSE_ARGS = [
     "--with-coverage",
-    "--cover-package=users,todos",
+    "--cover-package=todoapp.users,todoapp.todos",
 ]
