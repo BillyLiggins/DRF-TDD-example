@@ -4,10 +4,11 @@ from django.contrib import admin
 
 api_urls = [
     path('todos/', include('todoapp.todos.urls')),
-    path('', include('todoapp.users.urls')),
+    path('users/', include('todoapp.users.urls')),
 ]
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(api_urls)),
+    path('', include(api_urls)),
+    path('myapp/', include('todoapp.myapp.urls')),
 ]
